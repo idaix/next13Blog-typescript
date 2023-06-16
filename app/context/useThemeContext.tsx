@@ -20,9 +20,11 @@ export const useThemeContext = () => {
 };
 
 export default function ThemeProvider({ children }: { children: ReactNode }) {
-  const [isDark, setIsDark] = useState(
-    localStorage.getItem("theme") === "dark"
-  );
+  const getIsDarkFromLocalStorage: boolean =
+    typeof window !== "undefined"
+      ? window.localStorage.getItem("theme") === "dark"
+      : false;
+  const [isDark, setIsDark] = useState(getIsDarkFromLocalStorage);
 
   useEffect(() => {
     isDark && document.body.classList.add("dark");
