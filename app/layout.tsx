@@ -1,4 +1,6 @@
 import Providers from "./Providers";
+import BackToHome from "./components/BackToHome";
+import Navbar from "./components/Navbar";
 import Theme from "./components/Theme";
 import "./globals.css";
 import {
@@ -30,11 +32,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={josefin.className + "bg-white"}>
+      <body className={josefin.className + "bg-white min-h-screen"}>
         <Providers>
-          <main className="dark:bg-slate-900 min-h-screen h-full">
-            <Theme />
-            <div>{children}</div>
+          <main className="dark:bg-slate-900 min-h-screen h-full flex flex-col">
+            <Navbar />
+            <div className="flex-1">{children}</div>
             <footer className="pt-20 pb-5 text-gray-500 text-center text-xs font-mono">
               Next13 | Vercel - Tailwind Css <br />
               Dai Chekkal
