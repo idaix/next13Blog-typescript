@@ -9,7 +9,7 @@ interface HeaderProps {
 }
 const Header: React.FC<HeaderProps> = ({ name, bio, profileImage }) => {
   return (
-    <header className="grid place-content-center md:place-content-start gap-y-10 md:grid-cols-2 items-center lg:px-40">
+    <header className="grid items-center justify-center gap-y-10 md:grid-cols-2 lg:px-28 lg:py-10">
       <div className="space-y-5 ">
         <span className="font-mono tracking-wide text-blue-300 dark:text-blue-600">
           Welcome, I&apos;m
@@ -22,8 +22,8 @@ const Header: React.FC<HeaderProps> = ({ name, bio, profileImage }) => {
           Find me on Github
         </button>
       </div>
-      <div className="w-fit md:w-full">
-        <figure className="w-56 h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden relative md:ml-auto shadow-2xl shadow-blue-300 dark:shadow-slate-950">
+      <div className="w-full">
+        <figure className="w-56 h-56 lg:w-80 lg:h-80 rounded-full overflow-hidden relative mx-auto md:ml-auto md:mr-0 shadow-2xl shadow-blue-300 dark:shadow-slate-950">
           <Image src={profileImage} fill alt={name + " profile"} />
         </figure>
       </div>

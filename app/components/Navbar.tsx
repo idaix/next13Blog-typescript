@@ -12,14 +12,15 @@ const Navbar = () => {
             top-0
             left-0
             w-full h-20
-            bg-gray-50
-            dark:bg-slate-950
+            bg-gray-50/50
+            dark:bg-slate-950/50
             shadow-sm
             flex
             items-center
             justify-between
             z-40
             px-5
+            backdrop-blur
         "
     >
       <BackToHome />
