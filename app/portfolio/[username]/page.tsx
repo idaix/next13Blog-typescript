@@ -32,7 +32,7 @@ const UserPortfolio = async ({ params: { username } }: { params: IParams }) => {
           bio={user.bio}
           profileImage={user.avatar_url}
         />
-        <Projects data={repos} />
+        <Projects data={repos} username={user.login} />
       </div>
     </div>
   );

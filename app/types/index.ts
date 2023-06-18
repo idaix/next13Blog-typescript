@@ -11,6 +11,7 @@ export type SafeRepoType = {
   full_name: string;
   html_url: string;
   description: string | null;
-  homepage: string | null;
+  homepage: string;
   language: string;
+  stargazers_count: number;
 };

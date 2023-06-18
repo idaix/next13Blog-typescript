@@ -1,8 +1,15 @@
 import { SafeRepoType } from "@/app/types";
 import SectionHeader from "./SectionHeader";
 import ProjectCard from "./ProjectCard";
+import Link from "next/link";
 
-const Projects = ({ data }: { data: SafeRepoType[] }) => {
+const Projects = ({
+  data,
+  username,
+}: {
+  data: SafeRepoType[];
+  username: string;
+}) => {
   if (!data.length)
     return (
       <div className="text-center">
@@ -18,6 +25,15 @@ const Projects = ({ data }: { data: SafeRepoType[] }) => {
         {data.map((item) => (
           <ProjectCard key={item.id} project={item} />
         ))}
+      </div>
+      <div className="text-center">
+        <Link
+          target="_blank"
+          className="text-center text-gray-500"
+          href={`https://github.com/${username}?tab=repositories`}
+        >
+          View all my projects on github
+        </Link>
       </div>
     </section>
   );
