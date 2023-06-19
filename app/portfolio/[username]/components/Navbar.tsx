@@ -16,13 +16,13 @@ const Navbar = ({ name, username }: { name: string; username: string }) => {
           <span className="text-xs font-mono text-blue-300 dark:text-blue-600">
             02.{" "}
           </span>
-          About
+          Projects
         </li>
         <li>
           <span className="text-xs font-mono text-blue-300 dark:text-blue-600">
             03.{" "}
           </span>
-          Projects
+          Contact
         </li>
       </ul>
       <span className="md:hidden">Menu</span>

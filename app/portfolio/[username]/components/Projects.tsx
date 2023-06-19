@@ -23,7 +23,7 @@ const Projects = ({
       <SectionHeader id="02" label="My Projects" />
       <div className="grid md:grid-cols-2 gap-5">
         {data.map((item) => (
-          <ProjectCard key={item.id} project={item} />
+          <ProjectCard key={item.id} project={item} username={username} />
         ))}
       </div>
       <div className="text-center">
