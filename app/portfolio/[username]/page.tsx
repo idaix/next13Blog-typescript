@@ -15,7 +15,7 @@ const UserPortfolio = async ({ params: { username } }: { params: IParams }) => {
   if (!user?.id)
     return (
       <div className="py-20 dark:text-white container mx-auto px-5">
-        <p>
+        <p className="text-center">
           Sorry there is not enough information for the user &quot;{username}
           &quot;
         </p>

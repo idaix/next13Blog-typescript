@@ -7,10 +7,10 @@ const Projects = ({
   data,
   username,
 }: {
-  data: SafeRepoType[];
+  data: SafeRepoType[] | undefined;
   username: string;
 }) => {
-  if (!data.length)
+  if (!data?.length)
     return (
       <div className="text-center">
         <span className="text-4xl text-gray-500">
@@ -22,7 +22,7 @@ const Projects = ({
     <section className="w-full sm:px-5 lg:px-20 space-y-5">
       <SectionHeader id="02" label="My Projects" />
       <div className="grid md:grid-cols-2 gap-5">
-        {data.map((item) => (
+        {data?.map((item) => (
           <ProjectCard key={item.id} project={item} username={username} />
         ))}
       </div>

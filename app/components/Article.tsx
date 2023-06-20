@@ -1,11 +1,25 @@
+"use client";
+import { motion, useInView } from "framer-motion";
 import { SafePostType } from "../types";
+import { useRef } from "react";
 
 interface ArticleProps {
   data: SafePostType;
 }
 const Article: React.FC<ArticleProps> = ({ data }) => {
+  const articleRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(articleRef);
   return (
-    <article key={data.id} className="relative">
+    <motion.article
+      key={data.id}
+      ref={articleRef}
+      style={{
+        // transform: isInView ? "none" : "translateX(-100px)",
+        opacity: isInView ? 1 : 0,
+        transition: "all 3s",
+      }}
+      className="relative"
+    >
       <span className="absolute hidden lg:block text-gray-500 top-5 left-40">
         April 24, 2023
       </span>
@@ -32,7 +46,7 @@ const Article: React.FC<ArticleProps> = ({ data }) => {
           </svg>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 };
 
