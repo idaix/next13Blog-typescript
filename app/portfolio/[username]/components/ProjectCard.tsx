@@ -2,11 +2,10 @@
 import { getREADMEContent } from "@/app/actions/getREADMEContent";
 import { SafeRepoType } from "@/app/types";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import { useEffect, useRef, useState } from "react";
 import { HiOutlineExternalLink, HiOutlineStar } from "react-icons/hi";
 import { HiOutlineCodeBracketSquare } from "react-icons/hi2";
-
+import { motion, useInView } from "framer-motion";
 const ProjectCard = ({
   project,
   username,
@@ -14,6 +13,8 @@ const ProjectCard = ({
   project: SafeRepoType;
   username: string;
 }) => {
+  const articleRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(articleRef);
   const [readmeContent, setreadmeContent] = useState("");
   useEffect(() => {
     const getReadme = async () => {
@@ -24,7 +25,15 @@ const ProjectCard = ({
   }, [username, project.name]);
 
   return (
-    <article className="bg-slate-50 dark:bg-slate-950 p-5 rounded-xl flex flex-col gap-y-1 justify-between">
+    <motion.article
+      ref={articleRef}
+      style={{
+        transform: isInView ? "none" : "translateX(-100px)",
+        opacity: isInView ? 1 : 0,
+        transition: "all 0.9s",
+      }}
+      className="bg-slate-50 dark:bg-slate-950 p-5 rounded-xl flex flex-col gap-y-1 justify-between"
+    >
       <div className="">
         <div className="flex gap-1">
           <h3 className="flex-1 font-semibold">{project.name}</h3>
@@ -54,7 +63,7 @@ const ProjectCard = ({
           {project.stargazers_count}
         </span>
       </div>
-    </article>
+    </motion.article>
   );
 };
 
